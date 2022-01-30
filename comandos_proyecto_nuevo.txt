@@ -1,0 +1,15 @@
+para servidor backend 
+yarn init -D
+inicializas el package.json
+
+yarn install express cors mysql underscore
+
+
+
+para el cliente(react)
+npx create-react-app nombre-proyecto
+yarn start
+
+
+yarn install
+yarn start
