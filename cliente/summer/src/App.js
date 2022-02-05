@@ -7,7 +7,9 @@ export default function App() {
   return (
     <div>
       {user ? (
+        <div>
           <SignInSignUp />
+        </div>
       ) : (
         <h1>No estas logeado</h1>
       )}
