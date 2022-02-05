@@ -2,7 +2,7 @@ para servidor backend
 yarn init -D
 inicializas el package.json
 
-yarn install express cors mysql underscore
+yarn install express cors mongodb fs jsonwebtoken underscore
 
 
 
