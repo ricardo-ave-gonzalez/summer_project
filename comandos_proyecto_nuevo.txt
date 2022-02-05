@@ -8,7 +8,7 @@ yarn install express cors mongodb fs jsonwebtoken underscore
 
 para el cliente(react)
 npx create-react-app nombre-proyecto
-yarn start
+yarn dev       => start app react
 
 
 yarn install
