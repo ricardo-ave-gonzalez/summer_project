@@ -5,7 +5,7 @@ import LogoBlanco from '../../../assets/png/logo-white.png';
 import "./BasicModal.scss"
 
 export default function BasicModal(props) {
-    const {show, setShow, children} = props;
+    const { show, setShow, children } = props;
 
     return (
         <Modal
@@ -17,12 +17,12 @@ export default function BasicModal(props) {
         >
             <Modal.Header>
                 <Modal.Title>
-                    <img src={LogoBlanco} alt="logo"/>
+                    <img src={LogoBlanco} alt="logo" />
                 </Modal.Title>
-                <Modal.Body>
-                    {children}
-                </Modal.Body>
             </Modal.Header>
+            <Modal.Body>
+                {children}
+            </Modal.Body>
         </Modal>
     );
 }

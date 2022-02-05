@@ -8,29 +8,38 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import BasicModal from '../../components/Modal/BasicModal'
+import SignUpForm from '../../components/SignUpForm';
 import LogoBlanco from '../../assets/png/logo-white.png'
 //import Logo from '../../assets/png/logo.png'
 
 import "./SignInSignUp.scss";
 
-export default function SignInSignUp() {
-    const [mostrarModal, setMostrarModal] = useState(true);
+export default function SignInSignUp(props) {
+    const [mostrarModal, setMostrarModal] = useState(false);
     const [contenidoModal, setContenidoModal] = useState(null);
+
+    const abrirModal = content => {
+        setMostrarModal(true);
+        setContenidoModal(content);
+    }
 
     return (
         <>
             <Container className="signin-signup" fluid>
                 <Row>
                     <LeftComponent />
-                    <RightComponent />
+                    <RightComponent 
+                        abrirModal={abrirModal}
+                        setMostrarModal={setMostrarModal}
+                    />
                 </Row>
             </Container>
 
-            <BasicModal 
+            <BasicModal
                 show={mostrarModal}
                 setShow={setMostrarModal}
             >
-                <div><h2>Contenido de Modal</h2></div>
+            {contenidoModal}
             </BasicModal>
         </>
     );
@@ -59,13 +68,18 @@ function LeftComponent() {
     )
 }
 
-function RightComponent() {
+function RightComponent(props) {
+    const { abrirModal, setMostrarModal } = props;
+    
     return (
         <Col className="signin-signup__right" xs={6}>
             <div>
                 <img src={LogoBlanco} alt="logoBlanco" />
                 <h2>Mira lo que está pasando en el mundo...</h2>
-                <Button variant="primary">Regístrate</Button>
+                <Button
+                    variant="primary"
+                    onClick={() => abrirModal(<SignUpForm setMostrarModal={setMostrarModal} />)}
+                >Regístrate</Button>
                 <Button variant="outline-primary">Iniciar sesión</Button>
             </div>
         </Col>
