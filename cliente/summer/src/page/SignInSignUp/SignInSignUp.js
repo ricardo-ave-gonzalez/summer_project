@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -6,12 +6,17 @@ import {
     faUser,
     faComment
 } from '@fortawesome/free-solid-svg-icons';
+
+import BasicModal from '../../components/Modal/BasicModal'
 import LogoBlanco from '../../assets/png/logo-white.png'
 //import Logo from '../../assets/png/logo.png'
 
 import "./SignInSignUp.scss";
 
 export default function SignInSignUp() {
+    const [mostrarModal, setMostrarModal] = useState(true);
+    const [contenidoModal, setContenidoModal] = useState(null);
+
     return (
         <>
             <Container className="signin-signup" fluid>
@@ -20,6 +25,13 @@ export default function SignInSignUp() {
                     <RightComponent />
                 </Row>
             </Container>
+
+            <BasicModal 
+                show={mostrarModal}
+                setShow={setMostrarModal}
+            >
+                <div><h2>Contenido de Modal</h2></div>
+            </BasicModal>
         </>
     );
 }
@@ -51,7 +63,7 @@ function RightComponent() {
     return (
         <Col className="signin-signup__right" xs={6}>
             <div>
-                <img src={LogoBlanco} alt="logoBlanco"/>
+                <img src={LogoBlanco} alt="logoBlanco" />
                 <h2>Mira lo que está pasando en el mundo...</h2>
                 <Button variant="primary">Regístrate</Button>
                 <Button variant="outline-primary">Iniciar sesión</Button>
