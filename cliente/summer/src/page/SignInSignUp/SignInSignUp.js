@@ -7,7 +7,7 @@ import {
     faComment
 } from '@fortawesome/free-solid-svg-icons';
 import LogoBlanco from '../../assets/png/logo-white.png'
-import Logo from '../../assets/png/logo.png'
+//import Logo from '../../assets/png/logo.png'
 
 import "./SignInSignUp.scss";
 
@@ -28,7 +28,7 @@ export default function SignInSignUp() {
 function LeftComponent() {
     return (
         <Col className="signin-signup__left" xs={6}>
-            <img src={Logo} alt="Logo" />
+            {/* <img src={Logo} alt="Logo" /> */}
             <div>
                 <h2>
                     <FontAwesomeIcon icon={faSearch} />
@@ -50,7 +50,12 @@ function LeftComponent() {
 function RightComponent() {
     return (
         <Col className="signin-signup__right" xs={6}>
-            <h2>componente derecho... </h2>
+            <div>
+                <img src={LogoBlanco} alt="logoBlanco"/>
+                <h2>Mira lo que está pasando en el mundo...</h2>
+                <Button variant="primary">Regístrate</Button>
+                <Button variant="outline-primary">Iniciar sesión</Button>
+            </div>
         </Col>
     )
 }
