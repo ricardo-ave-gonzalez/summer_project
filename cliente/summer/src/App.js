@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import SignInSignUp from "./page/SignInSignUp";
 
 export default function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({user:"carlos"});
 
   return (
-    <div>{user ? <h1>Estas logeado</h1> : <h1>No estas logeado</h1>}</div>
+    <div>{user ? (
+      <div>
+        <SignInSignUp />
+      </div>) : (<h1>No estas logeado</h1>)}</div>
   )
 }
