@@ -19,10 +19,14 @@ export default function SignUpForm(props) {
             z && ValidCount++
             return null
         })
-        if(ValidCount !== 4){
-            toast.warning('Completa todos los campos del formulario')
-        }
         console.log(ValidCount)    // output => 4, valor total de nuestro formulario
+        //size maneja dinamicamente la cantidad dando posiblidad de agregar tantos input
+        //que automaticamente no tendria que alterar ésta función
+        if(ValidCount !== size(formData)){
+            toast.warning("Completa todos los campos del formulario")
+        } else {
+            toast.success("Formulario OK.")
+        }        
     }
 
     /**
