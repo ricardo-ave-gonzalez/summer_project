@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Row, Col, Form, Button, Spinner } from 'react-bootstrap'
-//import { values, size } from 'lodash';
-import { values, size } from 'underscore';
-import { toast } from 'react-toastify';
+//import { values, size } from 'lodash'
+import { values, size } from 'underscore'
+import { toast } from 'react-toastify'
 import { isEmailValid } from '../../utils/validations'
+import { signUpApi } from '../../api/auth'
 
 import "./SignUpForm.scss"
 
@@ -34,8 +35,23 @@ export default function SignUpForm(props) {
             } else if(size(formData.password) < 6){
                 toast.warning("La contraseña debe tener al menos 6 caracteres")
             } else {
-                setLoading(true);
-                toast.success("Formulario OK.")
+                toast.success("El registro ha sido correcto");
+                setLoading(true)
+                signUpApi(formData).then(z => {
+                    if(z.code){
+                        toast.warning(z.messagge)
+                    } else {
+                        toast.success("El registro ha sido exitoso")
+                        setMostrarModal(false)
+                        setFormData(initialFormValue())// reiniciamos el formulario
+                    }
+                })
+                .catch(() => {
+                    toast.error("Error del servidor, intente más tarde")
+                })
+                .finally(() => {
+                   setLoading(false) 
+                })
             }       
         }        
     }
@@ -110,7 +126,7 @@ export default function SignUpForm(props) {
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                    {!loading ? "Registrarse" : <Spinner animation='border'/>}
+                    {!loading ? "Registrarse" : <Spinner animation="border"/>}
                 </Button>
             </Form>
         </div>
