@@ -9,7 +9,9 @@ import {
 
 import BasicModal from '../../components/Modal/BasicModal'
 import SignUpForm from '../../components/SignUpForm';
-import LogoBlanco from '../../assets/png/logo-white.png'
+
+import LogoPen from '../../assets/png/logo-pen.png'
+//import LogoBlanco from '../../assets/png/logo-white.png'
 //import Logo from '../../assets/png/logo.png'
 
 import "./SignInSignUp.scss";
@@ -53,7 +55,7 @@ function LeftComponent() {
             <div>
                 <h2>
                     <FontAwesomeIcon icon={faSearch} />
-                    Sigue lo que te
+                    Sigue lo que te gusta
                 </h2>
                 <h2>
                     <FontAwesomeIcon icon={faUser} />
@@ -74,7 +76,7 @@ function RightComponent(props) {
     return (
         <Col className="signin-signup__right" xs={6}>
             <div>
-                <img src={LogoBlanco} alt="logoBlanco" />
+                <img src={LogoPen} alt="logoBlanco" />
                 <h2>Mira lo que está pasando en el mundo...</h2>
                 <Button
                     variant="primary"

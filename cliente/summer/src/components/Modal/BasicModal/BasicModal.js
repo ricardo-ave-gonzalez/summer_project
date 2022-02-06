@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal } from 'react-bootstrap';
-import LogoBlanco from '../../../assets/png/logo-white.png';
+//import LogoBlanco from '../../../assets/png/logo-white.png';
+import LogoPen from '../../../assets/png/logo-pen.png';
 
 import "./BasicModal.scss"
 
@@ -17,7 +18,7 @@ export default function BasicModal(props) {
         >
             <Modal.Header>
                 <Modal.Title>
-                    <img src={LogoBlanco} alt="logo" />
+                    <img src={LogoPen} alt="logo" />
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

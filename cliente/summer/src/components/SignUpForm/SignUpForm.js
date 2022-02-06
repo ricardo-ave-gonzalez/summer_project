@@ -22,7 +22,7 @@ export default function SignUpForm(props) {
             z && ValidCount++
             return null
         })
-        console.log(ValidCount)    // output => 4, valor total de nuestro formulario
+        //console.log(ValidCount)    // output => 4, valor total de nuestro formulario
         //size maneja dinamicamente la cantidad dando posiblidad de agregar tantos input
         //que automaticamente no tendria que alterar ésta función
         if(ValidCount !== size(formData)){
