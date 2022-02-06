@@ -14,9 +14,9 @@ export default function App() {
       ) : (
         <h1>No estas logeado</h1>
       )}
-      <ToastContainer 
+      <ToastContainer
         position="top-right"
-        autoClose={5000} 
+        autoClose={5000}
         hideProgressBar
         newestOnTop={false}
         closeOnClick
