@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import { Row, Col, Form, Button, Spinner } from 'react-bootstrap'
+//import { values, size } from 'lodash';
+import { values, size } from 'underscore';
+import { toast } from 'react-toastify';
 
 import "./SignUpForm.scss"
 
@@ -9,9 +12,17 @@ export default function SignUpForm(props) {
 
     const onSubmit = e => {
         e.preventDefault()
-        setMostrarModal(false)
-
         console.log(formData)
+
+        let ValidCount = 0 // si es menor a la cantidad de campos vacios
+        values(formData).some(z => {
+            z && ValidCount++
+            return null
+        })
+        if(ValidCount !== 4){
+            toast.warning('Completa todos los campos del formulario')
+        }
+        console.log(ValidCount)    // output => 4, valor total de nuestro formulario
     }
 
     /**
@@ -21,7 +32,7 @@ export default function SignUpForm(props) {
      * @param {*} e 
      */
     const onChange = e => {
-        setFormData({ ...formData, [e.target.name]: e.target.value})
+        setFormData({ ...formData, [e.target.name]: e.target.value })
     }
 
     return (
@@ -44,14 +55,14 @@ export default function SignUpForm(props) {
                         </Col>
                         <Col>
                             <Form.Control
-                                type="password" 
+                                type="password"
                                 placeholder="Contraseña"
                                 name="password"
                                 /* onChange={e => 
                                     setFormData({ ...formData, password: e.target.value})
                                 } */
                                 defaultValue={formData.password}
-                             />
+                            />
                         </Col>
                     </Row>
                 </Form.Group>
@@ -59,10 +70,10 @@ export default function SignUpForm(props) {
                 <Form.Group>
                     <Row>
                         <Col>
-                            <Form.Control 
-                                type="email" 
+                            <Form.Control
+                                type="email"
                                 placeholder="Correo Electronico"
-                                name="email" 
+                                name="email"
                                 /* onChange={e => 
                                     setFormData({ ...formData, email: e.target.value})
                                 }     */
@@ -70,9 +81,9 @@ export default function SignUpForm(props) {
                             />
                         </Col>
                         <Col>
-                            <Form.Control 
-                                type="password" 
-                                placeholder="Repetir Contraseña" 
+                            <Form.Control
+                                type="password"
+                                placeholder="Repetir Contraseña"
                                 name="repeatPassword"
                                 /* onChange={e => 
                                     setFormData({ ...formData, repeatPassword: e.target.value})
