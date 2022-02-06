@@ -10,6 +10,7 @@ import "./SignUpForm.scss"
 export default function SignUpForm(props) {
     const { setMostrarModal } = props
     const [formData, setFormData] = useState(initialFormValue())
+    const [loading, setLoading] = useState(false);
 
     const onSubmit = e => {
         e.preventDefault()
@@ -33,6 +34,7 @@ export default function SignUpForm(props) {
             } else if(size(formData.password) < 6){
                 toast.warning("La contraseña debe tener al menos 6 caracteres")
             } else {
+                setLoading(true);
                 toast.success("Formulario OK.")
             }       
         }        
@@ -108,7 +110,7 @@ export default function SignUpForm(props) {
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
-                    Registrarse
+                    {!loading ? "Registrarse" : <Spinner animation='border'/>}
                 </Button>
             </Form>
         </div>
