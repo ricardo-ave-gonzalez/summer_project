@@ -28,7 +28,6 @@ export function signUpApi(user) {
         .catch(err => { return err })
 }
 
-
 export function signInApi(user) {
     const url = `${API_HOST}/login`
 
@@ -54,7 +53,6 @@ export function signInApi(user) {
         .then(z => z)
         .catch(z => z)
 }
-
 
 export function setTokenApi(token) {
     localStorage.setItem(TOKEN, token);
