@@ -9,7 +9,7 @@ import {
 
 import BasicModal from '../../components/Modal/BasicModal'
 import SignUpForm from '../../components/SignUpForm';
-
+import SignInForm  from '../../components/SignInForm/SignInForm';
 import LogoPen from '../../assets/png/logo-pen.png'
 //import LogoBlanco from '../../assets/png/logo-white.png'
 //import Logo from '../../assets/png/logo.png'
@@ -82,7 +82,10 @@ function RightComponent(props) {
                     variant="primary"
                     onClick={() => abrirModal(<SignUpForm setMostrarModal={setMostrarModal} />)}
                 >Regístrate</Button>
-                <Button variant="outline-primary">Iniciar sesión</Button>
+                <Button 
+                    variant="outline-primary"
+                    onClick={() => abrirModal(<SignInForm />)}
+                    >Iniciar sesión</Button>
             </div>
         </Col>
     )
