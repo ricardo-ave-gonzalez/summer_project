@@ -3,7 +3,7 @@ import { Form, Button, Spinner } from 'react-bootstrap'
 import { values, size } from 'underscore'
 import { toast } from 'react-toastify'
 import { isEmailValid } from "../../utils/validations"
-import { signInApi } from '../../api/auth'
+import { signInApi, setTokenApi } from '../../api/auth'
 
 import "./SignInForm.scss"
 
@@ -27,17 +27,18 @@ export default function SignInForm() {
             } else {
                 setsignInLoading(true);
                 signInApi(formData).then(z => {
-                    if(z.messagge){
+                    if (z.messagge) {
                         toast.warning(z.messagge)
                     } else {
-                        console.log(z.token)
+                        setTokenApi(z.token)
+                        //console.log(z.token)
                     }
                 }).catch(z => {
                     toast.error("Error del servidor, intentelo mas tarde.")
                 }).finally(z => {
                     setsignInLoading(true)
                 })
-                 
+
             }
         }
     }

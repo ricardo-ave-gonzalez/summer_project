@@ -1,4 +1,4 @@
-import { API_HOST } from '../utils/constant'
+import { API_HOST, TOKEN } from '../utils/constant'
 
 export function signUpApi(user) {
     //luego agregaremos nginx por ahora testeamos sin proxy
@@ -52,4 +52,9 @@ export function signInApi(user){
     })
     .then(z => z)
     .catch(z => z)
+}
+
+
+export function setTokenApi(token){
+    localStorage.setItem(TOKEN, token);
 }
