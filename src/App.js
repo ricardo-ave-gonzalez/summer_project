@@ -12,7 +12,6 @@ export default function App() {
     //console.log(isUserLogedApi())
   }, [])
   
-
   return (
     <AuthContext.Provider value={user}>
       {user ? (<h1>No estas logeado</h1>) : (<SignInSignUp />)}
