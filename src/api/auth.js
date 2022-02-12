@@ -58,3 +58,19 @@ export function signInApi(user){
 export function setTokenApi(token){
     localStorage.setItem(TOKEN, token);
 }
+
+export function getTokenApi(){
+    return localStorage.getItem(TOKEN)
+}
+
+export function logoutApi(){
+    localStorage.removeItem(TOKEN)
+}
+
+export function isUserLogeadoApi(){
+    const token = getTokenApi();
+    if(!token){
+        logoutApi()
+        return null;
+    }
+}
