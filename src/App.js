@@ -8,15 +8,19 @@ import Routing from "./routes/Routing";
 
 export default function App() {
   const [user, setUser] = useState(null);
+  const [loadUser, setloadUser] = useState(false);
+  const [refreshCheckLogin, setrefreshCheckLogin] = useState(false)
 
   useEffect(() => {
-    setUser(isUserLogedApi());
+    setUser(isUserLogedApi())
+    setrefreshCheckLogin(false)
+    setloadUser(true)
     //console.log(isUserLogedApi())
-  }, [])
+  }, [refreshCheckLogin])
 
   return (
     <AuthContext.Provider value={user}>
-      {user ? (<Routing />) : (<SignInSignUp />)}
+      {user ? (<Routing />) : (<SignInSignUp setrefreshCheckLogin={setrefreshCheckLogin}/>)}
       <ToastContainer
         position="top-right"
         autoClose={5000}

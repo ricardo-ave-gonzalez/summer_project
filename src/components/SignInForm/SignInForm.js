@@ -7,7 +7,8 @@ import { signInApi, setTokenApi } from '../../api/auth'
 
 import "./SignInForm.scss"
 
-export default function SignInForm() {
+export default function SignInForm(props) {
+    const { setrefreshCheckLogin } = props
     const [formData, setformData] = useState(initialFormValue())
     const [signInLoading, setsignInLoading] = useState(false)
 
@@ -31,6 +32,7 @@ export default function SignInForm() {
                         toast.warning(z.messagge)
                     } else {
                         setTokenApi(z.token)
+                        setrefreshCheckLogin(true)
                         //console.log(z.token)
                     }
                 }).catch(z => {

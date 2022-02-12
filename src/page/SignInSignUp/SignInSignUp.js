@@ -17,6 +17,7 @@ import LogoPen from '../../assets/png/logo-pen.png'
 import "./SignInSignUp.scss";
 
 export default function SignInSignUp(props) {
+    const {setrefreshCheckLogin} = props
     const [mostrarModal, setMostrarModal] = useState(false);
     const [contenidoModal, setContenidoModal] = useState(null);
 
@@ -33,6 +34,7 @@ export default function SignInSignUp(props) {
                     <RightComponent 
                         abrirModal={abrirModal}
                         setMostrarModal={setMostrarModal}
+                        setrefreshCheckLogin={setrefreshCheckLogin}
                     />
                 </Row>
             </Container>
@@ -71,7 +73,7 @@ function LeftComponent() {
 }
 
 function RightComponent(props) {
-    const { abrirModal, setMostrarModal } = props;
+    const { abrirModal, setMostrarModal, setrefreshCheckLogin } = props;
     
     return (
         <Col className="signin-signup__right" xs={6}>
@@ -84,7 +86,7 @@ function RightComponent(props) {
                 >Regístrate</Button>
                 <Button 
                     variant="outline-primary"
-                    onClick={() => abrirModal(<SignInForm />)}
+                    onClick={() => abrirModal(<SignInForm setrefreshCheckLogin={setrefreshCheckLogin}/>)}
                     >Iniciar sesión</Button>
             </div>
         </Col>

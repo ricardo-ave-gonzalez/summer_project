@@ -13,7 +13,7 @@ export default function Routing() {
         <BrowserRouter>
             <Routes>
                     <Route path="*" element={<Error404 />} />
-                    <Route path="/home" element={<Home />} />                    
+                    <Route path="/" element={<Home />} />                    
                     {/* {map(configRouting, (z, x) => (
                         <Route key={x} path={z.path} value={z.exact} element={x}>
                             <z.page />
