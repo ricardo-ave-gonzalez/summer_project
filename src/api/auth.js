@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode';
 
 export function signUpApi(user) {
     //luego agregaremos nginx por ahora testeamos sin proxy
-    const url = `${API_HOST}/signup`
+    const url = `${API_HOST}/signup/`
     const userTemp = {
         ...user,
         email: user.email.toLowerCase(), //siempre enviamos el mail en minuscula
@@ -17,6 +17,9 @@ export function signUpApi(user) {
         body: JSON.stringify(userTemp)
     }
 
+    /* fetch(`/api/v1/contratista`, () => {
+
+    }) */
     return fetch(url, params)
         .then(z => {
             if (z.status >= 200 && z.status < 300) {
