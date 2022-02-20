@@ -18,9 +18,10 @@ export default function App() {
     //console.log(isUserLogedApi())
   }, [refreshCheckLogin])
 
+  //comentario
   return (
     <AuthContext.Provider value={user}>
-      {user ? (<Routing />) : (<SignInSignUp setrefreshCheckLogin={setrefreshCheckLogin}/>)}
+      {user ? (<Routing />) : (<SignInSignUp setrefreshCheckLogin={setrefreshCheckLogin}/>)}      
       <ToastContainer
         position="top-right"
         autoClose={5000}
