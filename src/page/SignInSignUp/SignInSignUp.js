@@ -10,8 +10,7 @@ import {
 import BasicModal from '../../components/Modal/BasicModal'
 import SignUpForm from '../../components/SignUpForm';
 import SignInForm  from '../../components/SignInForm/SignInForm';
-import LogoPen from '../../assets/png/logo-pen.png';
-import { useAuth0 } from "@auth0/auth0-react";
+import LogoPen from '../../assets/png/logo-pen.png'
 //import LogoBlanco from '../../assets/png/logo-white.png'
 //import Logo from '../../assets/png/logo.png'
 
@@ -74,7 +73,6 @@ function LeftComponent() {
 }
 
 function RightComponent(props) {
-    const { loginWithRedirect } = useAuth0();
     const { abrirModal, setMostrarModal, setrefreshCheckLogin } = props;
     
     return (
@@ -90,10 +88,6 @@ function RightComponent(props) {
                     variant="outline-primary"
                     onClick={() => abrirModal(<SignInForm setrefreshCheckLogin={setrefreshCheckLogin}/>)}
                     >Iniciar sesión</Button>
-                <Button 
-                    variant="outline-primary"
-                    onClick={() => loginWithRedirect()}
-                    >Twitter</Button>    
             </div>
         </Col>
     )
