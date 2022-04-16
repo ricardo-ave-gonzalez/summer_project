@@ -8,12 +8,23 @@ import {
     faUsers,
     faPowerOff
 } from '@fortawesome/free-solid-svg-icons'
+import { logoutApi } from '../../api/auth'
 import skeb from '../../assets/png/logo-white-skeb.png'
 
 
 import './LeftMenu.scss'
 
-export default function LeftMenu() {
+export default function LeftMenu(props) {
+    //console.log(props)
+    const { setrefreshCheckLogin } = props;
+
+    const logout = () => {
+        logoutApi();
+        //finalmente despues de hacer destructuring y pasar por todo el flujo
+        //podemos reutilizar y cambiar el estado del login desde este componente
+        setrefreshCheckLogin(true);
+    }
+
     return (
         <div className="left-menu">
             <img className="logo" src={skeb} alt="Skeb" />
@@ -27,7 +38,7 @@ export default function LeftMenu() {
             <Link to="/profile">
                 <FontAwesomeIcon icon={faUser} />Perfil
             </Link>
-            <Link to="/logout">
+            <Link to="" onClick={logout}>
                 <FontAwesomeIcon icon={faPowerOff} />Cerrar sesión
             </Link>
 

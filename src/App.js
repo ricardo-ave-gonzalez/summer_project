@@ -21,7 +21,7 @@ export default function App() {
   //comentario
   return (
     <AuthContext.Provider value={user}>
-      {user ? (<Routing />) : (<SignInSignUp setrefreshCheckLogin={setrefreshCheckLogin}/>)}      
+      {user ? (<Routing setrefreshCheckLogin={setrefreshCheckLogin} />) : (<SignInSignUp setrefreshCheckLogin={setrefreshCheckLogin}/>)}      
       <ToastContainer
         position="top-right"
         autoClose={5000}
