@@ -7,8 +7,13 @@
 
     &__content {
         height: 100vh;
+        //agregamos scroll
         overflow-y: scroll;
         padding: 0 !important;
         border-right: 1px solid $border-grey;
+        //ocultamos scroll
+        &::-webkit-scrollbar{
+            display: none;
+        }
     }
 }
