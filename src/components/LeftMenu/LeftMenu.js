@@ -11,7 +11,6 @@ import {
 import { logoutApi } from '../../api/auth'
 import skeb from '../../assets/png/logo-white-skeb.png'
 
-
 import './LeftMenu.scss'
 
 export default function LeftMenu(props) {
