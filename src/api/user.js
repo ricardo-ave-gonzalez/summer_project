@@ -6,7 +6,8 @@ export async function obtenerUserApi(idUsuario){
 
     const params = {
         headers: {
-            "Content-Type":"applicattion/json"
+            "Content-Type":"applicattion/json",
+            Authorization: `Bearer ${getTokenApi()}`
         }
     }
 
@@ -15,6 +16,6 @@ export async function obtenerUserApi(idUsuario){
         if(z.status >= 400) throw null;
         return z.json();
     })
-    .then(z => console.log(z))
+    .then(z => { return z})
     .catch(err => console.log(err))
 }

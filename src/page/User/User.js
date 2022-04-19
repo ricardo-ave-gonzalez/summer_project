@@ -19,8 +19,10 @@ function User(props) {
 
   useEffect(() => {
     obtenerUserApi(params.id)
-    .then(z =>{
-      console.log(z)
+    .then(z => {
+      //console.log(z)
+      if(!z) toast.error('el usuario no existe')
+      setUser(z);
     })
     .catch(() => toast.error('el usuario no existe'))
   }, [params])
