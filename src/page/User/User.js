@@ -10,7 +10,8 @@ import {
 import { obtenerUserApi } from '../../api/user';
 
 import './User.scss'
-
+//nueva rama test feature
+//en proceso la subida de archivo en back de node para los avatar
 function User(props) {
   //console.log(props.router.params.id)
   const { router } = props;
